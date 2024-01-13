@@ -6,20 +6,19 @@ use Illuminate\Support\Facades\Schema;
 
 return new class extends Migration
 {
-    /**
-     * Run the migrations.
-     */
     public function up(): void
     {
         Schema::create('reviews', function (Blueprint $table) {
-            $table->id();
+            $table->uuid('id')->primary();
+            $table->string('review_text');
+            $table->float('rating');
+            $table->boolean('is_deleted')->nullable();
+            $table->foreignId('user_id')->constrained();
+            $table->foreignId('book_id')->constrained();
             $table->timestamps();
         });
     }
 
-    /**
-     * Reverse the migrations.
-     */
     public function down(): void
     {
         Schema::dropIfExists('reviews');
