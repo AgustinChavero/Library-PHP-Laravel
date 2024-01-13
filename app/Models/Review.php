@@ -23,13 +23,10 @@ class Review extends Model
         });
     }
 
-    @var array
     protected $fillable = [
         'id',
         'review_text',
-        'rating',
-        'user_id',
-        'book_id',
+        'rating'
     ];
 
     public function user(): BelongsTo
@@ -38,9 +35,9 @@ class Review extends Model
         # return $this->belongsTo(User::class, 'user_id', 'id');
     }
 
-    public function books(): BelongsTo
+    public function book(): BelongsTo
     {
         return $this->belongsTo(Book::class);
-        # return $this->belongsTo(Book::class, 'book_id', 'id');
     }
+
 }

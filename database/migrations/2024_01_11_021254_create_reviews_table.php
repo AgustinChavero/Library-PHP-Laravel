@@ -13,8 +13,8 @@ return new class extends Migration
             $table->string('review_text');
             $table->float('rating');
             $table->boolean('is_deleted')->nullable();
-            $table->foreignId('user_id')->constrained();
-            $table->foreignId('book_id')->constrained();
+            $table->uuid('user_id');
+            $table->uuid('book_id');
             $table->timestamps();
         });
     }
