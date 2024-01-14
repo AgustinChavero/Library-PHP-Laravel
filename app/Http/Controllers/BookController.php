@@ -8,15 +8,21 @@ use App\Models\Book;
 use App\Http\Requests\BookRequest;
 use App\Http\Requests\DeleteRequest;
 
+use Illuminate\Support\Facades\DB;
+
 class BookController extends Controller
 {
-    public function create(Request $request): JsonResponse
+    public function create(BookRequest $request): JsonResponse
     {   
-        /* $token = $request->input('token');
-        
-        if (!$token || !Auth::guard('api')->check()) {
-            return response()->json(['error' => 'Unauthorized'], 401);
-        } */
+        $userId = $request->input('author');
+
+        $tokenExists = DB::table('personal_access_tokens')
+                        ->where('tokenable_id', $userId)
+                        ->exists();
+
+        if (!$tokenExists) {
+            return response()->json(['error' => 'Unauthorized. User not authenticated.'], 401);
+        }
 
         $book = Book::create([
             'title' => $request->title,
@@ -24,7 +30,7 @@ class BookController extends Controller
             'preview' => $request->preview,
             'edition' => $request->edition,
             'publication_year' => $request->publication_year,
-            'is_deleted' => $request->is_deleted
+            'is_deleted' => false
         ]);
 
         return response()->json(['success' => 'Book created successfully', 'data' => $book], 201);
@@ -34,6 +40,11 @@ class BookController extends Controller
     public function update(BookRequest $request, $id): JsonResponse
     {
         $book = Book::find($id);
+
+        if ($request->user_id !== $book->author) {
+            return response()->json(['error' => 'Unauthorized. You are not the creator of this book.'], 403);
+        }
+        
         $book->update([
             'title' => $request->title,
             'author' => $request->author,
@@ -73,8 +84,22 @@ class BookController extends Controller
     public function delete(DeleteRequest $request, $id): JsonResponse
     {
         $book = Book::find($id);
+        $userId = $request->input('user_id');
+
+        $tokenExists = DB::table('personal_access_tokens')
+                        ->where('tokenable_id', $userId)
+                        ->exists();
+
+        if (!$tokenExists) {
+            return response()->json(['error' => 'Unauthorized. User not authenticated.'], 401);
+        }
+
+        if ($request->user_id !== $book->author) {
+            return response()->json(['error' => 'Unauthorized. You are not the creator of this book.'], 403);
+        }
+
         $book->update([
-            'is_deleted' => $request->is_deleted
+            'is_deleted' => true
         ]);
 
         return response()->json(['success' => 'Book deleted successfully', 'data' => $book], 201);

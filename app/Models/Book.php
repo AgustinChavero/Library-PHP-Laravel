@@ -36,6 +36,10 @@ class Book extends Model
     public function reviews(): HasMany
     {
         return $this->hasMany(Review::class);
-        # return $this->hasMany(Review::class, 'user_id', 'id');
+    }
+
+    public function user(): BelongsTo
+    {
+        return $this->belongsTo(User::class);
     }
 }
