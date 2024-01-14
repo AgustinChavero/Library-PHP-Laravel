@@ -15,6 +15,12 @@ class ReviewController extends Controller
     
     public function create(ReviewRequest $request): JsonResponse
     {   
+        $token = $request->input('token');
+        
+        if (!$token || !Auth::guard('api')->check()) {
+            return response()->json(['error' => 'Unauthorized'], 401);
+        }
+
         $user = User::findOrFail($request->user_id);
         $book = Book::findOrFail($request->book_id);
 
