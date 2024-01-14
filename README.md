@@ -24,32 +24,32 @@
 
 ### CRUD de Libros (books):
 
--   Create:
+-   [x] Create:
     -   Los usuarios autenticados pueden añadir nuevos libros.
--   Read:
+-   [x] Read:
     -   Todos los usuarios pueden ver la lista de libros y detalles.
--   Update/Delete:
+-   [x] Update/Delete:
     -   Solo el usuario que añadió un libro puede modificarlo o eliminarlo.
 
 ### CRUD de Revisiones (reviews):
 
--   Create:
+-   [x] Create:
     -   Usuarios autenticados pueden añadir revisiones.
--   Read:
+-   [x] Read:
     -   Todos los usuarios pueden ver las revisiones.
 -   Update/Delete:
     -   Los usuarios pueden modificar o eliminar solo sus propias revisiones.
 
 ### Búsqueda de Libros:
 
--   Filtrado por:
+-   [x] Filtrado por:
     -   title
     -   author
     -   publication_year
 
 ### Autenticación (Opcional):
 
--   Implementa funcionalidades para:
+-   [x] Implementa funcionalidades para:
     -   registro
     -   inicio de sesión
     -   cierre de sesión.
