@@ -16,7 +16,7 @@ class ReviewRequest extends FormRequest
         return [
             'review_text' => 'required | string | min:5',
             'rating' => 'required | numeric',
-            'user_id' => 'required | string',
+            'user_id' => 'required | exists:users,id',
             'book_id' => 'required | string',
         ];
     }

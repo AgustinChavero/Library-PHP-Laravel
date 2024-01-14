@@ -28,13 +28,13 @@ class Review extends Model
         'review_text',
         'rating',
         'user_id',
-        'book_id'
+        'book_id',
+        'is_deleted'
     ];
 
     public function user(): BelongsTo
     {
         return $this->belongsTo(User::class);
-        # return $this->belongsTo(User::class, 'user_id', 'id');
     }
 
     public function book(): BelongsTo

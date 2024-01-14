@@ -10,29 +10,29 @@ use App\Models\Book;
 use App\Http\Requests\ReviewRequest;
 use App\Http\Requests\DeleteRequest;
 
+use Illuminate\Support\Facades\DB;
+
 class ReviewController extends Controller
 {
     
     public function create(ReviewRequest $request): JsonResponse
     {   
-        /* $token = $request->input('token');
-        
-        if (!$token || !Auth::guard('api')->check()) {
-            return response()->json(['error' => 'Unauthorized'], 401);
-        } */
+        $userId = $request->input('user_id');
 
-        $user = User::findOrFail($request->user_id);
-        $book = Book::findOrFail($request->book_id);
+        $tokenExists = DB::table('personal_access_tokens')
+                        ->where('tokenable_id', $userId)
+                        ->exists();
 
-        if (!$user || !$book) {
-            return response()->json(['error' => 'Data not found'], 404);
+        if (!$tokenExists) {
+            return response()->json(['error' => 'Unauthorized. User not authenticated.'], 401);
         }
 
-        $review = $user->reviews()->create([
+        $review = Review::create([
             'review_text' => $request->review_text,
             'rating' => $request->rating,
             'user_id' => $request->user_id,
             'book_id' => $request->book_id,
+            'is_deleted' => false
         ]);
 
         return response()->json(['success' => 'Review created successfully', 'data' => $review], 201);
@@ -41,6 +41,11 @@ class ReviewController extends Controller
     public function update(ReviewRequest $request, $id): JsonResponse
     {
         $review = Review::find($id);
+
+        if ($request->user_id !== $review->user_id) {
+            return response()->json(['error' => 'Unauthorized. You are not the creator of this book.'], 403);
+        }
+
         $review->update([
             'review_text' => $request->review_text,
             'rating' => $request->rating
@@ -49,11 +54,17 @@ class ReviewController extends Controller
         return response()->json(['success' => 'Review updated successfully', 'data' => $review], 201);
     }
 
-    public function getAll(): JsonResponse
+    public function getAll(Request $request): JsonResponse
     {
-        $reviews = Review::all();
+        $book_id = $request->query('book_id');
 
-        return response()->json(['success' => 'Reviews finded successfully', 'data' => $reviews], 200);
+        $query = Review::query();
+
+        if ($book_id) $query->where('book_id', 'like', '%' . $book_id . '%');
+        
+        $reviews = $query->get();
+
+        return response()->json(['success' => 'Reviews found successfully', 'data' => $reviews], 200);
     }
 
     public function getOne($id): JsonResponse
@@ -66,8 +77,23 @@ class ReviewController extends Controller
     public function delete(DeleteRequest $request, $id): JsonResponse
     {
         $review = Review::find($id);
+
+        $userId = $request->input('user_id');
+
+        $tokenExists = DB::table('personal_access_tokens')
+                        ->where('tokenable_id', $userId)
+                        ->exists();
+
+        if (!$tokenExists) {
+            return response()->json(['error' => 'Unauthorized. User not authenticated.'], 401);
+        }
+
+        if ($request->user_id !== $review->user_id) {
+            return response()->json(['error' => 'Unauthorized. You are not the creator of this review.'], 403);
+        }
+
         $review->update([
-            'is_deleted' => $request->is_deleted
+            'is_deleted' => true
         ]);
 
         return response()->json(['success' => 'Review deleted successfully', 'data' => $review], 201);
