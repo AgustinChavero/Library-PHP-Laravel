@@ -1,6 +1,8 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+
+use App\Http\Controllers\AuthController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\BookController;
 use App\Http\Controllers\ReviewController;
@@ -22,3 +24,6 @@ Route::post('/review/create', [ReviewController::class, 'create'])->name('review
 Route::get('/review/detail/{id?}', [ReviewController::class, 'getOne'])->name('review.get.one');
 Route::put('/review/edit/{id?}', [ReviewController::class, 'update'])->name('review.update');
 Route::delete('/review/delete/{id?}', [ReviewController::class, 'delete'])->name('review.delete');
+
+Route::post('/auth/login', [AuthController::class, 'login'])->name('auth.login');
+Route::post('/auth/logout', [AuthController::class, 'logout'])->name('auth.logout');
