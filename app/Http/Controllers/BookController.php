@@ -12,11 +12,11 @@ class BookController extends Controller
 {
     public function create(Request $request): JsonResponse
     {   
-        $token = $request->input('token');
+        /* $token = $request->input('token');
         
         if (!$token || !Auth::guard('api')->check()) {
             return response()->json(['error' => 'Unauthorized'], 401);
-        }
+        } */
 
         $book = Book::create([
             'title' => $request->title,
@@ -24,8 +24,7 @@ class BookController extends Controller
             'preview' => $request->preview,
             'edition' => $request->edition,
             'publication_year' => $request->publication_year,
-            'is_deleted' => $request->is_deleted,
-            'user_id' => Auth::guard('api')->user()->id,
+            'is_deleted' => $request->is_deleted
         ]);
 
         return response()->json(['success' => 'Book created successfully', 'data' => $book], 201);
