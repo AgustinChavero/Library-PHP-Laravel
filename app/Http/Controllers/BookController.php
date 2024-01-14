@@ -10,8 +10,14 @@ use App\Http\Requests\DeleteRequest;
 
 class BookController extends Controller
 {
-    public function create(BookRequest $request): JsonResponse
+    public function create(Request $request): JsonResponse
     {   
+        $token = $request->input('token');
+        
+        if (!$token || !Auth::guard('api')->check()) {
+            return response()->json(['error' => 'Unauthorized'], 401);
+        }
+
         $book = Book::create([
             'title' => $request->title,
             'author' => $request->author,
@@ -19,10 +25,12 @@ class BookController extends Controller
             'edition' => $request->edition,
             'publication_year' => $request->publication_year,
             'is_deleted' => $request->is_deleted,
+            'user_id' => Auth::guard('api')->user()->id,
         ]);
 
         return response()->json(['success' => 'Book created successfully', 'data' => $book], 201);
     }
+
 
     public function update(BookRequest $request, $id): JsonResponse
     {
@@ -41,17 +49,15 @@ class BookController extends Controller
 
     public function getAll(Request $request): JsonResponse
     {
-        // Obtener los parámetros de la consulta
         $title = $request->query('title');
         $author = $request->query('author');
-        // Puedes agregar más parámetros según tus necesidades
+        $publication_year = $request->query('publication_year');
 
-        // Construir la consulta base
         $query = Book::query();
 
-        // Aplicar los filtros según los parámetros recibidos
         if ($title) $query->where('title', 'like', '%' . $title . '%');
         if ($author) $query->where('author', 'like', '%' . $author . '%');
+        if ($publication_year) $query->where('publication_year', 'like', '%' . $publication_year . '%');
         
         $books = $query->get();
 
