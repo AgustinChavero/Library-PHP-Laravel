@@ -14,6 +14,7 @@ class UserRequest extends FormRequest
     public function rules(): array
     {
         return [
+            'admin' => 'sometimes | exists:users,id',
             'name' => 'required | string | max:50 | min:5',
             'email' => 'required | string | max:50',
             'password' => 'required | string | max:20 | min:7',
