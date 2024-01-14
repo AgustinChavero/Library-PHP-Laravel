@@ -1,0 +1,35 @@
+src/
+├── all-docs/                       # Project documentation
+│   │   ├── arquitecture.txt                # Folder arquitecture
+│   │   ├── execution.md                    # Instructions for project execution
+│   └── ...
+│
+├── app/                            # Folder where all the rest api logic is stored
+│   │   ├── Exceptions/                      # Where the different exceptions are stored for error handling
+│   │   ├── Http/                            # Where all the logic related to routes is stored
+│   │   │   ├── Controllers/                        # Controller logic
+│   │   │   │   ├── ModelExampleController.php          # The entire crud of the related model
+│   │   │   ├── ...
+│   │   │   ├── Middleware/                         # Code responsible for security and restrictions of the API
+│   │   │   ├── Requests/                           # Custom requests that indicate that it will arrive by body
+│   │   │   │   ├── ModelExampleRequest.php             # Code responsible for validating data injection
+│   │   │   ├── ...
+│   └── ...
+│
+├── config/                         # Folder containing the API configuration
+│
+├── database/                       # Migration storage
+│   │   ├── migrations/                             # Code for migration of your specific model
+│   │   │   ├── Date_create_model_table.php             # Migration in charge of structuring database
+│   │   │   ├── ...
+│   │   ├── seeders/                                # Seeder storage
+│   │   │   ├── ModelExcampleSeeder.php             # Seeder responsible for creating data in his model table
+│   │   └────── ...
+│   └── ...
+
+├── routes/                         # Route storage
+│   ├── route.php                           # Endpoints responsible for executing the code of the controllers
+│   └── ...
+│
+├── vendor/                         # Dependecies
+└── ...
