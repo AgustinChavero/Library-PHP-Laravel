@@ -37,7 +37,7 @@
     -   [x] Usuarios autenticados pueden añadir revisiones.
 -   [x] Read:
     -   [x] Todos los usuarios pueden ver las revisiones.
--   Update/Delete:
+-   [x] Update/Delete:
     -   [x] Los usuarios pueden modificar o eliminar solo sus propias revisiones.
 
 ### Búsqueda de Libros:
