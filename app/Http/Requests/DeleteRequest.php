@@ -14,7 +14,7 @@ class DeleteRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'is_deleted' => 'required | boolean',
+            'user_id' => 'required | exists:users,id',
         ];
     }
 }

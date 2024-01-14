@@ -12,9 +12,9 @@ return new class extends Migration
             $table->uuid('id')->primary();
             $table->string('review_text');
             $table->float('rating');
-            $table->boolean('is_deleted')->nullable();
             $table->uuid('user_id');
             $table->uuid('book_id');
+            $table->boolean('is_deleted')->nullable();
             $table->timestamps();
         });
     }
