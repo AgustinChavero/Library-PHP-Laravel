@@ -7,52 +7,52 @@
 ### Modelado de Datos (en inglés):
 
 -   [x] Users - Debe incluir información estándar del usuario como:
-    -   id
-    -   name
-    -   email
-    -   password
+    -   [x] id
+    -   [x] name
+    -   [x] email
+    -   [x] password
 -   [x] Books - Cada entrada debe tener:
-    -   id
-    -   title
-    -   author
-    -   publication_year
+    -   [x] id
+    -   [x] title
+    -   [x] author
+    -   [x] publication_year
 -   [x] Reviews - Debe relacionarse con users y books:
-    -   user_id
-    -   book_id
-    -   review_text
-    -   rating
+    -   [x] user_id
+    -   [x] book_id
+    -   [x] review_text
+    -   [x] rating
 
 ### CRUD de Libros (books):
 
 -   [x] Create:
-    -   Los usuarios autenticados pueden añadir nuevos libros.
+    -   [x] Los usuarios autenticados pueden añadir nuevos libros.
 -   [x] Read:
-    -   Todos los usuarios pueden ver la lista de libros y detalles.
+    -   [x] Todos los usuarios pueden ver la lista de libros y detalles.
 -   [x] Update/Delete:
-    -   Solo el usuario que añadió un libro puede modificarlo o eliminarlo.
+    -   [x] Solo el usuario que añadió un libro puede modificarlo o eliminarlo.
 
 ### CRUD de Revisiones (reviews):
 
 -   [x] Create:
-    -   Usuarios autenticados pueden añadir revisiones.
+    -   [x] Usuarios autenticados pueden añadir revisiones.
 -   [x] Read:
-    -   Todos los usuarios pueden ver las revisiones.
+    -   [x] Todos los usuarios pueden ver las revisiones.
 -   Update/Delete:
-    -   Los usuarios pueden modificar o eliminar solo sus propias revisiones.
+    -   [x] Los usuarios pueden modificar o eliminar solo sus propias revisiones.
 
 ### Búsqueda de Libros:
 
 -   [x] Filtrado por:
-    -   title
-    -   author
-    -   publication_year
+    -   [x] title
+    -   [x] author
+    -   [x] publication_year
 
 ### Autenticación (Opcional):
 
 -   [x] Implementa funcionalidades para:
-    -   registro
-    -   inicio de sesión
-    -   cierre de sesión.
+    -   [x] registro
+    -   [x] inicio de sesión
+    -   [x] cierre de sesión.
 -   [x] Asegura que las contraseñas sean almacenadas de forma segura.
 
 ### Dockerizacion (Opcional):
@@ -67,12 +67,12 @@
 
 -   [x] Código Claro y Mantenible (en inglés):
     -   Código bien organizado y documentado, utilizando convenciones de Laravel.
-    -   Uso de migraciones y seeders para la base de datos.
+    -   [x] Uso de migraciones y seeders para la base de datos.
 -   [x] Seguridad:
-    -   Protección de endpoints, especialmente los que modifican la base de datos.
-    -   Restricción de acciones de creación, actualización y eliminación a usuarios autorizados.
+    -   [x] Protección de endpoints, especialmente los que modifican la base de datos.
+    -   [x] Restricción de acciones de creación, actualización y eliminación a usuarios autorizados.
 -   [x] Control de Errores:
-    -   Gestión adecuada de errores con mensajes informativos.
+    -   [x] Gestión adecuada de errores con mensajes informativos.
 
 ## Entrega y Evaluación:
 
