@@ -26,7 +26,9 @@ class Review extends Model
     protected $fillable = [
         'id',
         'review_text',
-        'rating'
+        'rating',
+        'user_id',
+        'book_id'
     ];
 
     public function user(): BelongsTo
