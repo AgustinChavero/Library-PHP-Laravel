@@ -1,81 +1,81 @@
-# Gestión de Biblioteca Digital
+# Digital Library Management
 
-## Requerimientos Funcionales Detallados:
+## Detailed Functional Requirements:
 
--   [x] Hecho
+-   [x] Done
 
-### Modelado de Datos (en inglés):
+### Data Modeling:
 
--   [x] Users - Debe incluir información estándar del usuario como:
+-   [x] Users - Must include standard user information such as:
     -   [x] id
     -   [x] name
     -   [x] email
     -   [x] password
--   [x] Books - Cada entrada debe tener:
+-   [x] Books - Each entry must have:
     -   [x] id
     -   [x] title
     -   [x] author
     -   [x] publication_year
--   [x] Reviews - Debe relacionarse con users y books:
+-   [x] Reviews - Should be related to users and books:
     -   [x] user_id
     -   [x] book_id
     -   [x] review_text
     -   [x] rating
 
-### CRUD de Libros (books):
+### Books CRUD (Create, Read, Update, Delete):
 
 -   [x] Create:
-    -   [x] Los usuarios autenticados pueden añadir nuevos libros.
+    -   [x] Authenticated users can add new books.
 -   [x] Read:
-    -   [x] Todos los usuarios pueden ver la lista de libros y detalles.
+    -   [x] All users can view the list of books and details.
 -   [x] Update/Delete:
-    -   [x] Solo el usuario que añadió un libro puede modificarlo o eliminarlo.
+    -   [x] Only the user who added a book can modify or delete it.
 
-### CRUD de Revisiones (reviews):
+### Reviews CRUD:
 
 -   [x] Create:
-    -   [x] Usuarios autenticados pueden añadir revisiones.
+    -   [x] Authenticated users can add reviews.
 -   [x] Read:
-    -   [x] Todos los usuarios pueden ver las revisiones.
+    -   [x] All users can view reviews.
 -   [x] Update/Delete:
-    -   [x] Los usuarios pueden modificar o eliminar solo sus propias revisiones.
+    -   [x] Users can modify or delete only their own reviews.
 
-### Búsqueda de Libros:
+### Book Search:
 
--   [x] Filtrado por:
+-   [x] Filtering by:
     -   [x] title
     -   [x] author
     -   [x] publication_year
 
-### Autenticación (Opcional):
+### Authentication (Optional):
 
--   [x] Implementa funcionalidades para:
-    -   [x] registro
-    -   [x] inicio de sesión
-    -   [x] cierre de sesión.
--   [x] Asegura que las contraseñas sean almacenadas de forma segura.
+-   [x] Implement functionalities for:
+    -   [x] registration
+    -   [x] login
+    -   [x] logout.
+-   [x] Ensure passwords are securely stored.
 
-### Dockerizacion (Opcional):
+### Dockerization (Optional):
 
--   Lograr dockerizar la aplicación creando un “Docker-compose” para ejecutar el proyecto en cualquier equipo con docker.
+-   Dockerize the application by creating a "Docker-compose" to run the project on any machine with Docker.
 
-### Documentación de la API:
+### API Documentation:
 
--   Descripción clara de cada endpoint, incluyendo métodos HTTP, parámetros y formatos de respuesta.
+-   [x] Clear description of each endpoint, including HTTP methods, parameters, and response formats.
 
-### Requerimientos No Funcionales Detallados:
+### Detailed Non-functional Requirements:
 
--   [x] Código Claro y Mantenible (en inglés):
-    -   Código bien organizado y documentado, utilizando convenciones de Laravel.
-    -   [x] Uso de migraciones y seeders para la base de datos.
--   [x] Seguridad:
-    -   [x] Protección de endpoints, especialmente los que modifican la base de datos.
-    -   [x] Restricción de acciones de creación, actualización y eliminación a usuarios autorizados.
--   [x] Control de Errores:
-    -   [x] Gestión adecuada de errores con mensajes informativos.
+-   [x] Clear and Maintainable Code:
+    -   Well-organized and documented code, using Laravel conventions.
+    -   [x] Use migrations and seeders for the database.
+-   [x] Security:
+    -   [x] Protection of endpoints, especially those modifying the database.
+    -   [x] Restriction of creation, update, and deletion actions to authorized users.
+-   [x] Error Handling:
+    -   [x] Proper error management with informative messages.
 
-## Entrega y Evaluación:
+## Delivery and Evaluation:
 
--   Proyecto entregado en un repositorio de Git con README en inglés explicando configuración y ejecución.
--   Evaluación basada en cumplimiento de requerimientos, calidad del código, estructura de base de datos y funcionalidades.
--   Valoración de creatividad, eficiencia en la resolución de problemas y uso efectivo de Laravel y MySQL.
+-   Project delivered in a Git repository with an English README explaining configuration and execution.
+-   Evaluation based on compliance with requirements, code quality, database structure, and functionalities.
+-   Assessment of creativity, efficiency in problem-solving, and effective use of Laravel and MySQL.
