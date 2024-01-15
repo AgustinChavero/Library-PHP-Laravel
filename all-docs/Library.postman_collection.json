@@ -33,7 +33,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"name\": \"example\",\r\n    \"email\": \"example@email.com\",\r\n    \"password\": \"39843562\"\r\n}"
+							"raw": "{\r\n    \"name\": \"example\",\r\n    \"email\": \"example@email.com\",\r\n    \"password\": \"12345678\"\r\n}"
 						},
 						"url": {
 							"raw": "http://127.0.0.1:8000/api/user/create",
@@ -868,7 +868,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"admin\": \"d7c78abd-e8f5-4ddc-9b3a-7b211145a5b8\",\r\n    \"name\": \"newexample\",\r\n    \"email\": \"newexample@email.com\",\r\n    \"password\": \"39843562\",\r\n    \"is_deleted\": false\r\n}"
+							"raw": "{\r\n    \"admin\": \"d7c78abd-e8f5-4ddc-9b3a-7b211145a5b8\",\r\n    \"name\": \"newexample\",\r\n    \"email\": \"newexample@email.com\",\r\n    \"password\": \"12345678\",\r\n    \"is_deleted\": false\r\n}"
 						},
 						"url": {
 							"raw": "http://127.0.0.1:8000/api/user/edit/6e31793e-479f-4ad9-85e3-e4c3738d3fc5",

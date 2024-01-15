@@ -1,7 +1,9 @@
-src/
+project/                    # API related folders
 ├── all-docs/                       # Project documentation
+│   │   ├── endpoints/                      # Folder arquitecture
+│   │   │   │   ├── ModelExample.md             # Description of all endpoints related to this model
+│   │   │   └── ...
 │   │   ├── arquitecture.txt                # Folder arquitecture
-│   │   ├── execution.md                    # Instructions for project execution
 │   │   ├── execution.md                    # Instructions for project execution
 │   │   ├── postman_collection.json         # Postman file with all routes
 │   └── ...
@@ -15,7 +17,7 @@ src/
 │   │   │   ├── Middleware/                         # Code responsible for security and restrictions of the API
 │   │   │   ├── Requests/                           # Custom requests that indicate that it will arrive by body
 │   │   │   │   ├── ModelExampleRequest.php             # Code responsible for validating data injection
-│   │   │   ├── ...
+│   │   └───└── ...
 │   └── ...
 │
 ├── config/                         # Folder containing the API configuration
@@ -25,7 +27,7 @@ src/
 │   │   │   ├── Date_create_model_table.php             # Migration in charge of structuring database
 │   │   │   ├── ...
 │   │   ├── seeders/                                # Seeder storage
-│   │   │   ├── ModelExcampleSeeder.php             # Seeder responsible for creating data in his model table
+│   │   │   └── ModelExcampleSeeder.php             # Seeder responsible for creating data in his model table
 │   │   └────── ...
 │   └── ...
 
