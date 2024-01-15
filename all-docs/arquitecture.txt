@@ -2,6 +2,8 @@ src/
 ├── all-docs/                       # Project documentation
 │   │   ├── arquitecture.txt                # Folder arquitecture
 │   │   ├── execution.md                    # Instructions for project execution
+│   │   ├── execution.md                    # Instructions for project execution
+│   │   ├── postman_collection.json         # Postman file with all routes
 │   └── ...
 │
 ├── app/                            # Folder where all the rest api logic is stored
