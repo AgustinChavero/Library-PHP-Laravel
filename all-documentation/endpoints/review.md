@@ -6,6 +6,12 @@
 
         http://127.0.0.1:8000/api/review/create
 
+-   To create a review you need to send by headers:
+
+    -   Authorization
+
+            Bearer 1|kHLH6JDjycTzkAFTroCgZylOeTI9o4kFIz9Ahj3p0a1a15bf
+
 -   To create a review you need to send by body:
 
     -   Review Text, it has to be a string
@@ -40,6 +46,12 @@
 -   Only logged in users will be able to update reviews
 
         http://127.0.0.1:8000/api/review/edit/:id
+
+-   To update a review you need to send by headers:
+
+    -   Authorization
+
+            Bearer 1|kHLH6JDjycTzkAFTroCgZylOeTI9o4kFIz9Ahj3p0a1a15bf
 
 -   To update a review you need to send by params:
 
@@ -100,9 +112,15 @@
 
 ## Delete
 
--   Only the author, being logged in, can delete the review
+-   Only the logged author, being logged in, can delete the review
 
         http://127.0.0.1:8000/api/review/delete/:id
+
+-   To create a review you need to send by headers:
+
+    -   Authorization
+
+            Bearer 1|kHLH6JDjycTzkAFTroCgZylOeTI9o4kFIz9Ahj3p0a1a15bf
 
 -   To delete a review you need to send by params:
 

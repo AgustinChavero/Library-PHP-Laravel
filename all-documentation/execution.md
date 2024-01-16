@@ -42,6 +42,12 @@ You probably need to edit the environment variables
 
 # Postman testing:
 
-Remember to import the postman file that is in this same folder to be able to make requests
+Remember to import the postman file, that is in this same folder to be able to make requests
 
 In the endpoints folder you will find the description of each of the endpoints, what they can do and their restrictions
+
+# Notes:
+
+-   The deletion is logical, not literal
+
+-   Read the documentation to know what you can do without being logged in

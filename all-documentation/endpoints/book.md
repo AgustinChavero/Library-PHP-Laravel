@@ -6,6 +6,12 @@
 
         http://127.0.0.1:8000/api/book/create
 
+-   To create a book you need to send by headers:
+
+    -   Authorization
+
+            Bearer 1|kHLH6JDjycTzkAFTroCgZylOeTI9o4kFIz9Ahj3p0a1a15bf
+
 -   To create a book you need to send by body:
 
     -   Title, it has to be a string
@@ -42,9 +48,15 @@
 
 ## Update
 
--   Only the user who created the book will be able to edit it
+-   Only the logged user who created the book will be able to edit it
 
         http://127.0.0.1:8000/api/book/edit/:id
+
+-   To update a book you need to send by headers:
+
+    -   Authorization
+
+            Bearer 1|kHLH6JDjycTzkAFTroCgZylOeTI9o4kFIz9Ahj3p0a1a15bf
 
 -   To update a book you need to send by params:
 
@@ -115,9 +127,15 @@
 
 ## Delete
 
--   Only the author (creator of this book), being logged in, can delete the book
+-   Only the logged author (creator of this book), being logged in, can delete the book
 
         http://127.0.0.1:8000/api/book/delete/:id
+
+-   To delete a book you need to send by headers:
+
+    -   Authorization
+
+            Bearer 1|kHLH6JDjycTzkAFTroCgZylOeTI9o4kFIz9Ahj3p0a1a15bf
 
 -   To delete a book you need to send by params:
 

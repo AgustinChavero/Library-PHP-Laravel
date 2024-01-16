@@ -32,7 +32,7 @@
 
 ## Update
 
--   Only an Admin you can update a user
+-   Only an loged Admin you can update a user
 
         http://127.0.0.1:8000/api/user/edit/:id
 
@@ -41,6 +41,12 @@
     -   ID from user to update
 
             http://127.0.0.1:8000/api/user/edit/6e31793e-479f-4ad9-85e3-e4c3738d3fc5
+
+-   To update a user you need to send by headers:
+
+    -   Authorization
+
+            Bearer 1|kHLH6JDjycTzkAFTroCgZylOeTI9o4kFIz9Ahj3p0a1a15bf
 
 -   To update a user you need to send by body:
 
@@ -73,9 +79,15 @@
 
 ## GetAll
 
--   Everyone can see all users
+-   Only an loged person can see all users
 
         http://127.0.0.1:8000/api/user/
+
+-   To see all users you need to send by headers:
+
+    -   Authorization
+
+            Bearer 1|kHLH6JDjycTzkAFTroCgZylOeTI9o4kFIz9Ahj3p0a1a15bf
 
 ## GetOne
 
@@ -91,7 +103,7 @@
 
 ## Delete
 
--   Only an Admin you can delete a user
+-   Only an loged Admin you can delete a user
 
         http://127.0.0.1:8000/api/user/delete/:id
 
@@ -100,6 +112,12 @@
     -   ID from user to delete
 
             http://127.0.0.1:8000/api/user/delete/6e31793e-479f-4ad9-85e3-e4c3738d3fc5
+
+-   To delete a user you need to send by headers:
+
+    -   Authorization
+
+            Bearer 1|kHLH6JDjycTzkAFTroCgZylOeTI9o4kFIz9Ahj3p0a1a15bf
 
 -   To delete a user you need to send by body:
 
