@@ -61,14 +61,6 @@ class UserController extends Controller
     {
         $userId = $request->input('user_id');
 
-        $tokenExists = DB::table('personal_access_tokens')
-                        ->where('tokenable_id', $userId)
-                        ->exists();
-
-        if (!$tokenExists) {
-            return response()->json(['error' => 'Unauthorized. User not authenticated.'], 401);
-        }
-
         $admin = User::find($userId);
 
         if (!$admin->is_admin) {
