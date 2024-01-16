@@ -14,16 +14,6 @@ class BookController extends Controller
 {
     public function create(BookRequest $request): JsonResponse
     {   
-        $userId = $request->input('author');
-
-        $tokenExists = DB::table('personal_access_tokens')
-                        ->where('tokenable_id', $userId)
-                        ->exists();
-
-        if (!$tokenExists) {
-            return response()->json(['error' => 'Unauthorized. User not authenticated.'], 401);
-        }
-
         $book = Book::create([
             'title' => $request->title,
             'author' => $request->author,
@@ -84,15 +74,6 @@ class BookController extends Controller
     public function delete(DeleteRequest $request, $id): JsonResponse
     {
         $book = Book::find($id);
-        $userId = $request->input('user_id');
-
-        $tokenExists = DB::table('personal_access_tokens')
-                        ->where('tokenable_id', $userId)
-                        ->exists();
-
-        if (!$tokenExists) {
-            return response()->json(['error' => 'Unauthorized. User not authenticated.'], 401);
-        }
 
         if ($request->user_id !== $book->author) {
             return response()->json(['error' => 'Unauthorized. You are not the creator of this book.'], 403);
