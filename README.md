@@ -66,7 +66,7 @@
 ### Detailed Non-functional Requirements:
 
 -   [x] Clear and Maintainable Code:
-    -   Well-organized and documented code, using Laravel conventions.
+    -   [x] Well-organized and documented code, using Laravel conventions.
     -   [x] Use migrations and seeders for the database.
 -   [x] Security:
     -   [x] Protection of endpoints, especially those modifying the database.
