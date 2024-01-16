@@ -17,16 +17,6 @@ class ReviewController extends Controller
     
     public function create(ReviewRequest $request): JsonResponse
     {   
-        $userId = $request->input('user_id');
-
-        $tokenExists = DB::table('personal_access_tokens')
-                        ->where('tokenable_id', $userId)
-                        ->exists();
-
-        if (!$tokenExists) {
-            return response()->json(['error' => 'Unauthorized. User not authenticated.'], 401);
-        }
-
         $review = Review::create([
             'review_text' => $request->review_text,
             'rating' => $request->rating,
@@ -77,16 +67,6 @@ class ReviewController extends Controller
     public function delete(DeleteRequest $request, $id): JsonResponse
     {
         $review = Review::find($id);
-
-        $userId = $request->input('user_id');
-
-        $tokenExists = DB::table('personal_access_tokens')
-                        ->where('tokenable_id', $userId)
-                        ->exists();
-
-        if (!$tokenExists) {
-            return response()->json(['error' => 'Unauthorized. User not authenticated.'], 401);
-        }
 
         if ($request->user_id !== $review->user_id) {
             return response()->json(['error' => 'Unauthorized. You are not the creator of this review.'], 403);
