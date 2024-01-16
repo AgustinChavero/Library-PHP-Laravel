@@ -16,7 +16,7 @@ class UserRequest extends FormRequest
         return [
             'admin' => 'sometimes | exists:users,id',
             'name' => 'required | string | max:50 | min:5',
-            'email' => 'required | string | max:50',
+            'email' => 'required | email | max:50',
             'password' => 'required | string | max:20 | min:7',
         ];
     }
